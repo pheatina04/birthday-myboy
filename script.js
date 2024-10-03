@@ -1,59 +1,39 @@
-const birthdayVideo = document.getElementById('birthdayVideo');
+// Membuat Ucapan Doa Muncul Seperti Diketik
+const prayerText = "Semoga panjang umur, sehat selalu, dan semua cita-cita tercapai.";
+let prayerIndex = 0;
+
+function typePrayer() {
+    if (prayerIndex < prayerText.length) {
+        document.getElementById('prayer-message').innerHTML += prayerText.charAt(prayerIndex);
+        prayerIndex++;
+        setTimeout(typePrayer, 100);
+    }
+}
+
+// Fungsi Bunga Mekar
 const flower = document.getElementById('flower');
-const prayers = document.getElementById('prayers');
-const musicSelect = document.getElementById('musicSelect');
-const audioPlayer = document.getElementById('audioPlayer');
-const photosContainer = document.getElementById('photos');
-const messageInput = document.getElementById('messageInput');
-
-birthdayVideo.onended = function() {
-    flower.style.display = 'block';
-    setTimeout(() => {
-        flower.style.transition = 'all 2s';
-        flower.style.opacity = '1';
-    }, 500);
-    displayPrayers();
-    startPhotoSlideshow();
-};
-
-function displayPrayers() {
-    const prayersText = "Semoga hari ini penuh kebahagiaan dan cinta!";
-    let index = 0;
-    prayers.innerHTML = '';
-    const interval = setInterval(() => {
-        if (index < prayersText.length) {
-            prayers.innerHTML += prayersText[index];
-            index++;
-        } else {
-            clearInterval(interval);
-        }
-    }, 100);
+function bloomFlower() {
+    flower.classList.add('flower-bloom');
 }
 
-musicSelect.onchange = function() {
-    audioPlayer.src = musicSelect.value;
-    audioPlayer.play();
-};
+// Video Play Event
+const video = document.getElementById('birthday-video');
+video.addEventListener('ended', function() {
+    // Setelah video selesai diputar, buat bunga mekar
+    bloomFlower();
+    // Mulai ucapan doa
+    typePrayer();
 
+    // Setelah video selesai, pindahkan video ke folder foto
+    document.getElementById('photos').appendChild(video);
+});
+
+// Menampilkan Foto Secara Bergiliran
 let photoIndex = 0;
-function startPhotoSlideshow() {
-    const photos = [
-        'images/photo1.jpeg',
-        'images/photo2.jpeg',
-        'images/photo3.jpeg',
-        'images/photo4.jpeg',
-        'images/photo5.jpeg'
-    ];
-    
-    setInterval(() => {
-        if (photosContainer.children.length > 0) {
-            photosContainer.removeChild(photosContainer.children[0]);
-        }
-        
-        const img = document.createElement('img');
-        img.src = photos[photoIndex];
-        photosContainer.appendChild(img);
-        
-        photoIndex = (photoIndex + 1) % photos.length;
-    }, 2000);
+const photos = document.getElementsByClassName('gallery-photo');
+function showNextPhoto() {
+    photos[photoIndex].style.display = 'none';
+    photoIndex = (photoIndex + 1) % photos.length;
+    photos[photoIndex].style.display = 'block';
 }
+setInterval(showNextPhoto, 3000); // Ganti foto setiap 3 detik
