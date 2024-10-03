@@ -1,1 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+}
 
+.birthday-message {
+    font-size: 3em;
+    color: #ff69b4;
+    animation: move 5s infinite;
+}
+
+@keyframes move {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+.video-container {
+    margin: 20px 0;
+}
+
+.flower {
+    display: none;
+    /* Tambahkan gambar bunga */
+    background-image: url('images/flower.png');
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.prayers {
+    font-size: 1.5em;
+    color: #2e8b57;
+}
+
+.music-container {
+    margin: 20px 0;
+}
+
+.photo-folder {
+    margin-top: 20px;
+}
+
+.photos {
+    display: flex;
+    justify-content: center;
+}
+.photos img {
+    width: 100px;
+    height: auto;
+    margin: 0 5px;
+}
