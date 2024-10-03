@@ -1,1 +1,36 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulang Tahun</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="birthday-message" id="birthdayMessage">Selamat Ulang Tahun!</div>
+    <div class="video-container">
+        <video id="birthdayVideo" controls>
+            <source src="video/birthday_video.mp4" type="video/birthday-myboy_video.mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="flower" id="flower"></div>
+    <div class="prayers" id="prayers"></div>
+    <div class="music-container">
+        <h3>Musik</h3>
+        <select id="musicSelect">
+            <option value="link_lagu_1">Lagu 1</option>
+            <option value="link_lagu_2">Lagu 2</option>
+            <option value="link_lagu_3">Lagu 3</option>
+        </select>
+        <audio id="audioPlayer" controls></audio>
+    </div>
+    <div class="photo-folder" id="photoFolder">
+        <h3>Ucapkan Sesuatu</h3>
+        <textarea id="messageInput" placeholder="LOVE YOU THE WAY YOU ARE"></textarea>
+        <div class="photos" id="photos"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
