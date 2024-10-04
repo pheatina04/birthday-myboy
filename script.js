@@ -1,5 +1,6 @@
 // Membuat Ucapan Doa Muncul Seperti Diketik
-const prayerText = "Semoga panjang umur, sehat selalu, dan semua cita-cita tercapai.";
+const prayerText = "/n Semoga panjang umur, sehat selalu.
+    /n makin sayang sama aku";
 let prayerIndex = 0;
 
 function typePrayer() {
