@@ -2,8 +2,14 @@ body {
     text-align: center;
     background-color: #f0f8ff;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+.container {
+    margin-top: 50 px;
+    padding: 10px; /* menambahkan padding untuk tampilan yang lebih baik */
+    
 #birthday-message {
     font-size: 2.5em;
     color: #ff69b4;
@@ -13,11 +19,11 @@ body {
 @keyframes bounce {
     0% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
 }
 
 #video-section {
     margin: 20px auto;
+    max-width: 100%;
 }
 
 #prayer-message {
@@ -29,21 +35,21 @@ body {
 #flower {
     width: 100px;
     height: 100px;
-    position: absolute;
-    right: 20px;
-    top: 20%;
+    transition: transform 0.5s ease-out;
     opacity: 0;
-    transform: scale(0);
-    transition: transform 3s ease-out, opacity 2s ease-out;
 }
 
-#flower .petal {
-    transform-origin: 50% 50%;
+.petal {
+    opacity: 0;
+    transition: opacity 0.5s ease out, transform 0.5s ease-out;
 }
 
-.flower-bloom {
+.bloomed .petal {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.2);
+
+.bloomed #flower {
+    transform: scale(1.2);
 }
 
 #spotify-album {
@@ -58,3 +64,36 @@ body {
     width: 100px;
     margin: 10px;
 }
+
+@media (max-width: 600px) { 
+    #birthday-message {
+        font-size: 1.8em;
+    }
+
+    #video-section {
+        width: 100%;
+    }
+
+    #spotify-album {
+        width: 100%;
+    }
+
+    .gallery-photo {
+        width: 80px;
+    }
+}
+
+    @media (min-width: 601px) and (max-width; 1024px) {
+        #birthday-message {
+            font-size: 2.2em;
+        }
+        .gallery-photo {
+            width: 90px;
+        }
+    }
+
+
+
+
+
+    
